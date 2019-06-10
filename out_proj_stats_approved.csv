@@ -1,0 +1,186 @@
+project.id,subjects_count,retired_subjects_count,launch_approved,state,display_name
+3095,10,0,True,development,Amazon Aerobotany
+22,0,0,True,finished,Moon Zoo
+26,0,0,True,finished,Planet Hunters
+32,0,0,True,finished,Whale FM
+38,0,0,True,finished,Cell Slider
+39,28,28,True,finished,Andromeda Project
+45,0,0,True,finished,Worm Watch Lab
+46,0,0,True,finished,Plankton Portal
+51,0,0,True,finished,Sunspotter
+53,0,0,True,finished,Asteroid Zoo
+54,0,0,True,finished,Floating Forests v1
+59,0,0,True,finished,Orchid Observers
+988,10000,9926,True,finished,Computer Vision: Serengeti
+1736,9826,9826,True,finished,TreeVersity
+2464,17732,17108,True,finished,Zen of Dragons
+2954,10371,4759,True,finished,Count flowers for bees
+3658,60076,60076,True,finished,The Plastic Tide
+3775,15047,15047,True,finished,Elephant Expedition
+5187,26242,26242,True,finished,Planetary Response Network & Rescue Global: Caribbean Storms 2017
+5536,0,0,True,finished,Weather Rescue DWR
+11,5333,4396,True,live,Whales as Individuals
+17,27603,22710,True,live,Planet Four: Terrains
+73,7418,1994,True,live,Galaxy Zoo: 3D
+75,11004,975,True,live,Colorado Corridors Project
+245,29098,20353,True,live,AnnoTate
+376,6133,1202,True,live,Shakespeare's World
+378,0,0,True,live,Arizona BatWatch
+478,54116,43734,True,live,Seabirdwatch
+575,36211,3010,True,live,Western Shield — Camera Watch
+592,10346,921,True,live,The Community Seagrass Initiative - Seagrass Explorer
+825,1059233,978046,True,live,Camera CATalogue
+932,19000,0,True,live,Measuring the ANZACs (Original)
+1104,760543,157992,True,live,Gravity Spy
+1312,2424,104,True,live,Fossil Atmospheres
+1506,17713,15568,True,live,Mapping Change
+1558,37394,15769,True,live,Notes from Nature
+1856,30016,514,True,live,Astronomy Rewind
+2416,257280,2247,True,live,Backyard Worlds: Planet 9
+2439,48880,12866,True,live,Snapshot Wisconsin
+2471,287,230,True,live,Radio Meteor Zoo
+2501,63405,24602,True,live,Steller Watch
+2716,3528,39,True,live,Steelpan Vibrations
+2730,7477,0,True,live,Reading Nature's Library
+2789,558661,536670,True,live,Wildwatch Kenya
+2834,57229,0,True,live,Michigan ZoomIN
+2864,18825,16526,True,live,Floating Forests
+2989,14,0,True,live,Brain Match
+2990,32424,16772,True,live,Chicago Wildlife Watch
+3040,13956,0,True,live,AmazonCam Tambopata
+3063,1324,455,True,live,Bash the Bug
+3414,9984,1802,True,live,African American Civil War Soldiers
+3434,6107,4958,True,live,Etch a Cell
+3462,33664,3675,True,live,SCOTUS Notes: Behind the Scenes at Supreme Court Conference
+3587,79292,65628,True,live,Western Montana Wildlife
+3746,46486,11898,True,live,Canid Camera
+3757,204855,56811,True,live,Exoplanet Explorers
+3785,37823,18912,True,live,Snapshot Debshan
+3791,4272,3637,True,live,Weddell Seal Count
+4200,12762,8192,True,live,Leaf Targeting
+4264,8859,8170,True,live,Grouse Grooves
+4405,27363,16672,True,live,Decoding Punch Cards
+4409,2936,2876,True,live,eMammal
+4474,62859,31904,True,live,Parasite Safari
+4558,6672,174,True,live,Solar Stormwatch II
+4682,1377,587,True,live,Plant Letters
+4812,48294,2254,True,live,Project Plumage
+4846,91438,0,True,live,HumBug
+4953,14118,3517,True,live,London Bird Records
+4973,4801,2364,True,live,Anti-Slavery Manuscripts
+4982,29941,23578,True,live,Unearthing Michigan Ecological Data
+5042,74087,41119,True,live,Scribes of the Cairo Geniza
+5059,57755,2634,True,live,Variable Star Zoo
+5083,34609,184,True,live,Calgary Captured
+5086,15125,11042,True,live,Manatee Chat 
+5103,14815,4751,True,live,Battling Birds
+5115,43009,38203,True,live,Snapshot Grumeti
+5124,71702,59997,True,live,Snapshot Mountain Zebra
+5155,351738,48393,True,live,Snapshot Ruaha
+5240,9878,3875,True,live,Invader ID
+5352,13372,11281,True,live,Sounds of New York City (SONYC)
+5372,1,0,True,live,Where are my body organs? 
+5385,18817,13596,True,live,Orangutan Nest Watch
+5438,73942,37337,True,live,Snapshot Hoge Veluwe
+5532,146171,8458,True,live,South Sudan DiversityCam
+5551,6793,2423,True,live,The American Soldier
+5561,26251,1629,True,live,Snapshot APNR
+5596,307570,288698,True,live,Space Warps - HSC
+5724,9622,8434,True,live,Interior Least Tern and Piping Plover Predators
+5733,13814,6488,True,live,Galaxy Zoo
+5856,724,658,True,live,Southern Weather Discovery
+5880,223900,20328,True,live,Cedar Creek: Eyes on the Wild
+5918,81906,75,True,live,Muon Hunters 2.0
+6006,13066,11,True,live,COSMIC
+6190,58450,55510,True,live,Snapshot Pilanesberg
+6250,19117,2924,True,live,Monkey Health Explorer
+6263,4377,2871,True,live,Penguin Watch
+6356,29256,326,True,live,PELIcams
+6428,2011,629,True,live,Notes from Nature - WeDigFLPlants
+6465,1408,306,True,live,Earthquake Detective
+6767,96000,20,True,live,SuperWASP Variable Stars
+7009,20682,10860,True,live,Criminal Characters
+7045,1786,19,True,live,Macdonald Dictionary
+7170,6061,3997,True,live,Worlds of Wonder
+7174,29199,150,True,live,Hawk Talk
+7264,3000,2697,True,live,Notes from Nature - CalBug
+7354,27488,7,True,live,Astro-Ecology
+7485,5793,316,True,live,Lakeside Dark Data
+7620,28383,33,True,live,Wildwatch Burrowing Owl
+7828,16480,8240,True,live,Local Group Cluster Search
+7859,1700,677,True,live,Weather Rescue
+7929,5714,679,True,live,Planet Hunters TESS
+8266,86186,37856,True,live,Science Scribbler: Virus Factory 
+8413,21346,8509,True,live,Wild Gabon
+8776,44195,36097,True,live,Snapshot Madikwe
+9171,12132,3264,True,live,Snapshot Camdeboo
+9244,13892,9403,True,live,Snapshot De Hoop
+14,30071,30071,True,paused,Snapshots at Sea
+28,0,0,True,paused,Old Weather
+36,0,0,True,paused,Cyclone Center
+37,0,0,True,paused,Bat Detective
+41,0,0,True,paused,Planet Four
+47,0,0,True,paused,Radio Galaxy Zoo
+48,0,0,True,paused,Operation War Diary
+50,0,0,True,paused,Disk Detective
+52,0,0,True,paused,Condor Watch
+56,0,0,True,paused,Higgs Hunters
+58,0,0,True,paused,Science Gossip
+60,0,0,True,paused,Chimp & See
+121,0,0,True,paused,Serengeti Wildebeest Count
+153,30360,30360,True,paused,Jungle Rhythms
+275,9713,9713,True,paused,Fossil Finder
+347,2240,2240,True,paused,Season Spotter Questions
+348,1130,1130,True,paused,Season Spotter Image Marking
+593,0,0,True,paused,WildCam Gorongosa
+724,17240,17240,True,paused,Comet Hunters
+959,29701,29701,True,paused,Toledo Zoo Wild Shots
+1338,506,506,True,paused,Poppin' Galaxy
+1380,0,0,True,paused,Emigrant City
+1457,3487,3487,True,paused,Microscopy Masters
+1793,9759,9759,True,paused,Focus on Wildlife -- Cleveland Metroparks
+2025,7517,7517,True,paused,Milky Way Project
+2125,12921,12921,True,paused,Decoding the Civil War
+2299,2622,2622,True,paused,Pattern Perception
+2418,3909,3909,True,paused,Amazo'N'Oil
+2455,0,0,True,paused,Supernova Hunters
+2495,33739,33739,True,paused,Wildlife of Los Angeles
+2714,38800,38800,True,paused,Understanding Animal Faces
+2949,280,280,True,paused,Hubble's Hot Stars
+2977,8456,8456,True,paused,Snow Spotter
+3098,137515,137515,True,paused,Muon Hunter
+3219,9130,9130,True,paused,Planet Four: Ridges
+3393,27333,27333,True,paused,Galaxy Nurseries
+3525,4985,4985,True,paused,WildCam Darién
+3606,16707,16707,True,paused,Beluga Bits
+3767,2376,2376,True,paused,Mutual Muses
+3812,4989,4989,True,paused,Snapshot Gondwana
+4041,194,194,True,paused,Agent NEO
+4107,0,0,True,paused,1961 Census
+4115,106952,106952,True,paused,Planet 9
+4124,19129,19129,True,paused,Supernova Sighting
+4836,29206,29206,True,paused,Roll The Credits
+4852,1307,1307,True,paused,Wild Wolf Watch
+4996,188234,188234,True,paused,Snapshot Serengeti
+5006,1000,1000,True,paused,League of Nations in the Digital Age
+5044,14272,14272,True,paused,Snapshot Mariri
+5074,208061,208061,True,paused,Cheetahs of Central Namibia
+5127,15338,15338,True,paused,Numbat Discovery
+5142,0,0,True,paused,Identify New Zealand animals
+5199,1616,1616,True,paused,Science Scribbler
+5590,374,374,True,paused,Galaxy Builder
+5661,5129,5129,True,paused,Parochial Archive Project in Rome
+5818,39352,39352,True,paused,The Wilds' Wildlife Watch
+5899,865,865,True,paused,Rainforest Flowers
+6095,3832,3832,True,paused,Danish Butterflies and Moths 2020 Challenge
+6163,1746,1746,True,paused,Nebraska Wildlife Watch 
+6203,1,1,True,paused,ForestEyes
+6262,1600,1600,True,paused,The Hunt for Galaxy Clusters
+6480,4654,4654,True,paused,Protect Our Planet From Solar Storms
+6634,2932,2932,True,paused,Taranaki Mounga 
+7679,14889,14889,True,paused,Snapshot Karoo
+7981,874,874,True,paused,Zwicky's Quirky Transients
+8361,17260,17260,True,paused,Castaway
+8565,4747,4747,True,paused,Snapshot Kruger
+8676,13301,13301,True,paused,Snapshot Enonkishu
+9172,3611,3611,True,paused,Snapshot Kgalagadi
