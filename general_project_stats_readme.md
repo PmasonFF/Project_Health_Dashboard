@@ -1,8 +1,8 @@
 ## general_project_stats.py
 
-This script is written in Python 3.7 and requires panoptes_client to be install with all normal dependencies.
+This script is written in Python 3.7 and requires panoptes_client to be installed with all normal dependencies.
 
-The script uses environmental variables to pass zooniverse credentials to panoptes.  Without logging in all public launched approved projects will be listed. If you are logged in projects you have status on will show regardless of status, including projects which are private and/or Development.
+The script uses environmental variables to pass zooniverse credentials to panoptes.  Without logging in all public launched approved projects will be listed. If you are logged in, approved projects you have status on will show regardless of status, including projects which have been taken private and/or under Development.
 
 The script produces a sorted listing of all launch_approved projects. It shows the following fields for each project:
 'project.id', 'subjects_count', 'retired_subjects_count', 'launch_approved', 'state', 'display_name' 
