@@ -5,7 +5,7 @@ This data is then collated in a Google Sheet for review by Zooniverse team and c
 
 Currently only 'launched' projects are collated but could be extended to other project categories (beta).
 
-The Google sheets ( and occasionally other useful files will be maintained in this [Drive](https://drive.google.com/drive/folders/1dJm4R1vDIfTL3ruIfK0KxqRhvoVT15tb?usp=sharing)
+The Google sheets (and occasionally other useful files) will be maintained in this [Drive](https://drive.google.com/drive/folders/1dJm4R1vDIfTL3ruIfK0KxqRhvoVT15tb?usp=sharing)
 
 # Files
 
