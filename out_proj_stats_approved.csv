@@ -1,4 +1,4 @@
-project.id,subjects_count,retired_subjects_count,launch_approved,state,display_name
+project_id,subjects_count,retired_subjects_count,launch_approved,state,display_name
 3095,10,0,True,development,Amazon Aerobotany
 22,0,0,True,finished,Moon Zoo
 26,0,0,True,finished,Planet Hunters
@@ -22,23 +22,23 @@ project.id,subjects_count,retired_subjects_count,launch_approved,state,display_n
 5536,0,0,True,finished,Weather Rescue DWR
 11,5408,5248,True,live,Whales as Individuals
 14,7180,5655,True,live,Snapshots at Sea
-17,27603,26389,True,live,Planet Four: Terrains
+17,27603,26399,True,live,Planet Four: Terrains
 73,7418,2554,True,live,Galaxy Zoo: 3D
 75,11004,1513,True,live,Colorado Corridors Project
 245,29098,20378,True,live,AnnoTate
-376,6133,1265,True,live,Shakespeare's World
+376,6133,1266,True,live,Shakespeare's World
 378,0,0,True,live,Arizona BatWatch
 478,54116,43829,True,live,Seabirdwatch
 575,36211,3616,True,live,Western Shield — Camera Watch
 592,10346,947,True,live,The Community Seagrass Initiative - Seagrass Explorer
-825,1059233,980855,True,live,Camera CATalogue
-1104,768023,157992,True,live,Gravity Spy
+825,1059233,980869,True,live,Camera CATalogue
+1104,768047,157992,True,live,Gravity Spy
 1312,2424,104,True,live,Fossil Atmospheres
 1506,17713,15715,True,live,Mapping Change
 1558,31900,12582,True,live,Notes from Nature
 1856,30016,627,True,live,Astronomy Rewind
 2416,257280,2612,True,live,Backyard Worlds: Planet 9
-2439,48880,16192,True,live,Snapshot Wisconsin
+2439,48880,16201,True,live,Snapshot Wisconsin
 2471,575,383,True,live,Radio Meteor Zoo
 2501,63405,25321,True,live,Steller Watch
 2716,3528,40,True,live,Steelpan Vibrations
@@ -47,20 +47,20 @@ project.id,subjects_count,retired_subjects_count,launch_approved,state,display_n
 2834,57229,0,True,live,Michigan ZoomIN
 2864,18825,16569,True,live,Floating Forests
 2989,14,0,True,live,Brain Match
-2990,32424,18388,True,live,Chicago Wildlife Watch
+2990,32424,18407,True,live,Chicago Wildlife Watch
 3040,13956,0,True,live,AmazonCam Tambopata
 3063,1495,780,True,live,Bash the Bug
 3414,9984,3314,True,live,African American Civil War Soldiers
 3434,6107,4963,True,live,Etch a Cell
 3462,33664,3688,True,live,SCOTUS Notes: Behind the Scenes at Supreme Court Conference
 3587,79292,65841,True,live,Western Montana Wildlife
-3746,46486,12850,True,live,Canid Camera
+3746,46486,12851,True,live,Canid Camera
 3757,204855,56811,True,live,Exoplanet Explorers
 3785,37823,18912,True,live,Snapshot Debshan
 3791,4272,3637,True,live,Weddell Seal Count
 4200,12762,9066,True,live,Leaf Targeting
 4264,8859,8170,True,live,Grouse Grooves
-4405,27363,18819,True,live,Decoding Punch Cards
+4405,27363,18824,True,live,Decoding Punch Cards
 4409,4400,2876,True,live,eMammal
 4474,62859,32627,True,live,Parasite Safari
 4558,6672,180,True,live,Solar Stormwatch II
@@ -88,7 +88,7 @@ project.id,subjects_count,retired_subjects_count,launch_approved,state,display_n
 5561,26251,2342,True,live,Snapshot APNR
 5596,307570,288698,True,live,Space Warps - HSC
 5724,9622,8939,True,live,Interior Least Tern and Piping Plover Predators
-5733,14814,8057,True,live,Galaxy Zoo
+5733,14814,8058,True,live,Galaxy Zoo
 5856,724,658,True,live,Southern Weather Discovery
 5880,223900,21734,True,live,Cedar Creek: Eyes on the Wild
 5918,81906,130,True,live,Muon Hunters 2.0
@@ -109,12 +109,12 @@ project.id,subjects_count,retired_subjects_count,launch_approved,state,display_n
 7485,5793,419,True,live,Lakeside Dark Data
 7620,28383,111,True,live,Wildwatch Burrowing Owl
 7828,16480,8240,True,live,Local Group Cluster Search
-7859,3285,732,True,live,Weather Rescue
+7859,3285,736,True,live,Weather Rescue
 8266,86186,41148,True,live,Science Scribbler: Virus Factory 
 8361,3196,0,True,live,Castaway
 8413,21346,8863,True,live,Wild Gabon
-8776,44195,38423,True,live,Snapshot Madikwe
-9171,12132,4138,True,live,Snapshot Camdeboo
+8776,44195,38429,True,live,Snapshot Madikwe
+9171,12132,4139,True,live,Snapshot Camdeboo
 9244,13892,10845,True,live,Snapshot De Hoop
 9356,1782,38,True,live,Notes from Nature - Butterflies
 28,0,0,True,paused,Old Weather
