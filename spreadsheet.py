@@ -11,7 +11,7 @@ client = gspread.authorize(creds)
 # Find a workbook by name and open the first sheet
 # Make sure you use the right name here.
 # Need to share the folder where the file is with service account email address, don't need to specify path in code
-sheet = client.open("out_proj_stats_approved").sheet1
+# sheet = client.open("out_proj_stats_approved").sheet1
 
 # # Extract and print all of the values
 # list_of_hashes = sheet.get_all_records()
@@ -56,12 +56,6 @@ sheet = client.open("out_proj_stats_approved").sheet1
 # cell_list = sheet.range('A1:B7')
 # print(cell_list)
 #
-# # Create a blank speadsheet
-# sh = client.create('A new spreadsheet')
-# sh.share('petermijo@bmts.com', perm_type='user', role='owner')
-# sh.share('interface-with-google-sheets@zooniverse-project-health.iam.gserviceaccount.com',
-#          perm_type='user', role='writer')
-#
 # # Update a range of cells
 # cell_list = sheet.range('G1:H5')
 # for cell in cell_list:
@@ -70,11 +64,36 @@ sheet = client.open("out_proj_stats_approved").sheet1
 # # Update in batch
 # sheet.update_cells(cell_list)
 #
-# Read CSV file contents  This is not yet working!
-# sh = client.open("A new spreadsheet").sheet1
-# sh.update_acell('A1', "projectid")  # these two lines worked
-# print(sh.id)  # this did not, returned '0', but works for 'sheet' when opened in line 14 above'
+# # Create a blank spreadsheet  This places the spreadsheet in the root drive!
+# sh = client.create('A new spreadsheet')
+# sh.share('petermijo@bmts.com', perm_type='user', role='owner')
+# sh.share('interface-with-google-sheets@zooniverse-project-health.iam.gserviceaccount.com',
+#          perm_type='user', role='writer')
+# sh = client.open("A new spreadsheet")
+#
+# # Read CSV file contents
 # content = open('out_proj_stats_approved.csv', 'r', encoding='latin-1').read()
-# print(content)  # This is working
-# client.import_csv(sheet.id, content)  # file not found error
-client.list_permissions(sheet.id)  # file not found error
+# client.import_csv(sh.id, content)
+#
+#  Create a blank spread sheet in a folder other than the root
+# from googleapiclient.discovery import build
+#
+# drive_api = build('drive', 'v3', credentials=creds)
+# folder_id = '1dJm4R1vDIfTL3ruIfK0KxqRhvoVT15tb'
+# file_metadata = {
+#     'name': 'Another_spreadsheet',
+#     'mimeType': 'application/vnd.google-apps.spreadsheet',
+#     'parents': [folder_id]  # this can actually be a list of parents
+#     }
+# file = drive_api.files().create(body=file_metadata,
+#                                 fields='id').execute()
+# req = drive_api.permissions().create(
+#     fileId=file.get('id'),
+#     body={'type': 'user',
+#           'role': 'writer',
+#           'emailAddress': 'interface-with-google-sheets@zooniverse-project-health.iam.gserviceaccount.com'
+#           },
+#     fields="id").execute()  # basic owner permissions created with the file using drive_api
+#
+# content = open('out_proj_stats_approved.csv', 'r', encoding='latin-1').read()
+# client.import_csv(file.get('id'), content)
