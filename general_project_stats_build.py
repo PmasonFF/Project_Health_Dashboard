@@ -20,7 +20,7 @@ for project in Project.where(launch_approved=True):
 project_listing.sort(key=operator.itemgetter(0))
 sorted_on_state = sorted(project_listing, key=operator.itemgetter(4))
 
-with io.open('out_proj_stats_approved.csv', 'w', encoding='utf-8', newline='') as out_file:
+with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') as out_file:
     out_file.write('project.id' + ',' + 'subjects_count' + ','
                    + 'retired_subjects_count' + ',' + 'launch_approved' + ',' + 'state' + ',' + 'display_name' + '\n')
     for line in sorted_on_state:
