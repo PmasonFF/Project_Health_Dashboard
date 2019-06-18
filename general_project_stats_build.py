@@ -33,7 +33,8 @@ with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') 
     out_file.write("Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
                    + str(datetime.utcnow())[10:16] + '  UTC' + '\n' + '\n')
     out_file.write('project_id' + ',' + 'subjects_count' + ','
-                   + 'retired_subjects_count' + ',' + 'activity' + ',' + 'completeness' + ',' + 'state' + ',' + 'display_name' + '\n')
+                   + 'retired_subjects_count' + ',' + 'activity' + ','
+                   + 'completeness' + ',' + 'state' + ',' + 'display_name' + '\n')
     for line in sorted_on_state:
         print(line)
         out_file.write(str(line[0]) + ',' + str(line[1]) + ',' + str(line[2]) + ',' + str(line[3]) + ',' + str(
