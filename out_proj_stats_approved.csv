@@ -1,4 +1,4 @@
-Listing as of  2019-06-18  at  17:06  UTC
+Listing as of  2019-06-18  at  17:58  UTC
 
 project_id,subjects_count,retired_subjects_count,activity,completeness,state,display_name
 3095,10,0,0,0,development,Amazon Aerobotany
@@ -23,50 +23,50 @@ project_id,subjects_count,retired_subjects_count,activity,completeness,state,dis
 5187,26242,26242,25,100,finished,Planetary Response Network & Rescue Global: Caribbean Storms 2017
 5372,1,0,16,0,finished,Where are my body organs? 
 5536,0,0,0,0,finished,Weather Rescue DWR
-11,6560,5317,117,81,live,Whales as Individuals
-14,7180,6859,2558,96,live,Snapshots at Sea
+11,6568,5317,117,81,live,Whales as Individuals
+14,7180,6868,2558,96,live,Snapshots at Sea
 73,7418,2615,411,35,live,Galaxy Zoo: 3D
-75,11004,1618,442,15,live,Colorado Corridors Project
+75,11004,1619,442,15,live,Colorado Corridors Project
 245,29098,20384,63,70,live,AnnoTate
-376,6133,1282,58,21,live,Shakespeare's World
+376,6133,1283,58,21,live,Shakespeare's World
 378,0,0,0,0,live,Arizona BatWatch
 478,54116,43839,5,81,live,Seabirdwatch
 575,36211,3838,1508,11,live,Western Shield — Camera Watch
-592,10346,958,15,10,live,The Community Seagrass Initiative - Seagrass Explorer
-825,1059233,981514,1182,76,live,Camera CATalogue
-1104,770097,157992,732,30,live,Gravity Spy
+592,10346,959,15,10,live,The Community Seagrass Initiative - Seagrass Explorer
+825,1059233,981552,1182,76,live,Camera CATalogue
+1104,770098,157992,732,30,live,Gravity Spy
 1312,2424,104,6,67,live,Fossil Atmospheres
 1506,17713,15748,48,89,live,Mapping Change
-1558,148783,129950,430,92,live,Notes from Nature
+1558,148783,129951,430,92,live,Notes from Nature
 1856,30016,672,123,4,live,Astronomy Rewind
 2416,257280,2760,2424,1,live,Backyard Worlds: Planet 9
-2439,48880,17509,1217,36,live,Snapshot Wisconsin
-2471,863,539,116,62,live,Radio Meteor Zoo
+2439,48880,17532,1217,36,live,Snapshot Wisconsin
+2471,863,540,116,63,live,Radio Meteor Zoo
 2501,63405,25562,476,40,live,Steller Watch
 2716,3528,40,0,1,live,Steelpan Vibrations
 2730,7477,0,114,0,live,Reading Nature's Library
-2789,575157,559654,13685,97,live,Wildwatch Kenya
+2789,575157,559670,13685,97,live,Wildwatch Kenya
 2834,57229,0,675,0,live,Michigan ZoomIN
 2864,18825,16657,162,88,live,Floating Forests
 2989,14,0,5,0,live,Brain Match
-2990,32424,19506,2138,60,live,Chicago Wildlife Watch
+2990,32424,19514,2138,60,live,Chicago Wildlife Watch
 3040,13956,1,1434,0,live,AmazonCam Tambopata
 3063,2652,769,1691,31,live,Bash the Bug
-3414,9984,3845,423,39,live,African American Civil War Soldiers
+3414,9984,3847,423,39,live,African American Civil War Soldiers
 3434,6107,4963,38,67,live,Etch a Cell
-3462,33664,3694,233,11,live,SCOTUS Notes: Behind the Scenes at Supreme Court Conference
-3587,79292,65906,27,83,live,Western Montana Wildlife
-3746,46486,13167,1695,28,live,Canid Camera
+3462,33664,3695,233,11,live,SCOTUS Notes: Behind the Scenes at Supreme Court Conference
+3587,79292,65914,27,83,live,Western Montana Wildlife
+3746,46486,13171,1695,28,live,Canid Camera
 3757,204855,56811,404,50,live,Exoplanet Explorers
 3785,37823,18912,1041,50,live,Snapshot Debshan
 3791,4272,3637,15,85,live,Weddell Seal Count
 4200,12762,9574,250,75,live,Leaf Targeting
 4264,8859,8170,63,83,live,Grouse Grooves
-4405,27363,19368,539,71,live,Decoding Punch Cards
+4405,27363,19380,539,71,live,Decoding Punch Cards
 4409,3159,2876,47,25,live,eMammal
 4474,62859,32712,9,52,live,Parasite Safari
 4558,6672,182,57,3,live,Solar Stormwatch II
-4682,1377,636,31,75,live,Plant Letters
+4682,1377,637,31,75,live,Plant Letters
 4812,48294,2677,36,6,live,Project Plumage
 4846,91438,0,20,0,live,HumBug
 4953,14118,3585,14,25,live,London Bird Records
@@ -77,45 +77,46 @@ project_id,subjects_count,retired_subjects_count,activity,completeness,state,dis
 5083,34609,438,1603,1,live,Calgary Captured
 5086,15125,11109,97,73,live,Manatee Chat 
 5103,14815,7698,285,52,live,Battling Birds
-5115,43009,39553,1183,92,live,Snapshot Grumeti
-5124,71702,64705,1092,90,live,Snapshot Mountain Zebra
-5155,351738,49184,1006,14,live,Snapshot Ruaha
+5115,43009,39565,1183,92,live,Snapshot Grumeti
+5124,71702,64771,1092,90,live,Snapshot Mountain Zebra
+5155,351738,49189,1006,14,live,Snapshot Ruaha
 5240,9878,4054,92,41,live,Invader ID
 5352,13372,11463,129,86,live,Sounds of New York City (SONYC)
 5385,18817,13696,14,73,live,Orangutan Nest Watch
-5438,73807,37706,1889,51,live,Snapshot Hoge Veluwe
-5532,146171,9023,803,6,live,South Sudan DiversityCam
-5551,6793,3377,288,50,live,The American Soldier
-5561,26251,2575,1884,10,live,Snapshot APNR
+5438,73807,37711,1889,51,live,Snapshot Hoge Veluwe
+5532,146171,9025,803,6,live,South Sudan DiversityCam
+5551,6793,3379,288,50,live,The American Soldier
+5561,26251,2585,1884,10,live,Snapshot APNR
 5596,307570,288698,389,94,live,Space Warps - HSC
 5724,9622,8941,2,93,live,Interior Least Tern and Piping Plover Predators
-5733,15414,8164,3229,42,live,Galaxy Zoo
+5733,15414,8167,3229,42,live,Galaxy Zoo
 5856,724,658,39,91,live,Southern Weather Discovery
-5880,223900,22217,2430,10,live,Cedar Creek: Eyes on the Wild
-5918,81906,155,2848,0,live,Muon Hunters 2.0
+5880,223900,22226,2430,10,live,Cedar Creek: Eyes on the Wild
+5918,81906,159,2848,0,live,Muon Hunters 2.0
 6006,13066,15,532,0,live,COSMIC
-6250,19361,3530,529,9,live,Monkey Health Explorer
-6263,4377,3529,190,81,live,Penguin Watch
+6250,19361,3546,529,9,live,Monkey Health Explorer
+6263,4377,3537,190,81,live,Penguin Watch
 6356,29256,329,141,1,live,PELIcams
 6428,2011,1099,38,55,live,Notes from Nature - WeDigFLPlants
 6465,2469,533,612,5,live,Earthquake Detective
 6767,96000,29,453,0,live,SuperWASP Variable Stars
-7009,21080,11853,142,56,live,Criminal Characters
-7045,1786,302,104,17,live,Macdonald Dictionary
-7170,6460,4485,608,60,live,Worlds of Wonder
+7009,21080,11859,142,56,live,Criminal Characters
+7045,1786,304,104,17,live,Macdonald Dictionary
+7170,6460,4497,608,61,live,Worlds of Wonder
 7174,29199,183,301,1,live,Hawk Talk
 7264,3000,289,554,10,live,Notes from Nature - CalBug
 7354,27488,8,319,0,live,Astro-Ecology
 7485,5793,435,50,8,live,Lakeside Dark Data
 7620,28383,150,1218,1,live,Wildwatch Burrowing Owl
 7828,16480,8240,2298,50,live,Local Group Cluster Search
-7859,1820,69,3680,4,live,Weather Rescue
+7859,1820,74,3680,4,live,Weather Rescue
+7929,22481,0,539,0,live,Planet Hunters TESS
 8266,86186,41788,631,48,live,Science Scribbler: Virus Factory 
 8361,3196,0,99,0,live,Castaway
-8413,21346,8990,1971,42,live,Wild Gabon
-8776,44195,39317,1776,89,live,Snapshot Madikwe
+8413,21346,8999,1971,42,live,Wild Gabon
+8776,44195,39347,1776,89,live,Snapshot Madikwe
 9171,12132,4369,1815,36,live,Snapshot Camdeboo
-9244,13892,11658,2325,84,live,Snapshot De Hoop
+9244,13892,11702,2325,84,live,Snapshot De Hoop
 9356,1782,72,108,4,live,Notes from Nature - Butterflies
 17,27603,27603,680,100,paused,Planet Four: Terrains
 28,0,0,0,0,paused,Old Weather
@@ -182,7 +183,6 @@ project_id,subjects_count,retired_subjects_count,activity,completeness,state,dis
 6480,4654,4654,4,100,paused,Protect Our Planet From Solar Storms
 6634,2932,2932,0,100,paused,Taranaki Mounga 
 7679,14889,14889,0,100,paused,Snapshot Karoo
-7929,22481,0,539,100,paused,Planet Hunters TESS
 7981,874,874,0,100,paused,Zwicky's Quirky Transients
 8565,4747,4747,0,100,paused,Snapshot Kruger
 8676,13301,13301,0,100,paused,Snapshot Enonkishu
