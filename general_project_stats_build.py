@@ -3,6 +3,7 @@
 import os
 import io
 import csv
+import json
 import operator
 import sys
 from datetime import datetime
@@ -20,6 +21,20 @@ client = gspread.authorize(creds)
 
 Panoptes.connect(username=os.environ['User_name'], password=os.environ['Password'])
 
+with open('activity_stack.csv', 'r') as activity_file:
+    activity = csv.DictReader(activity_file)
+    stack = {}
+    date_time = ''
+    for act in activity:
+        if act['key'] != 'datetime':
+            stack[act['key']] = json.loads(act['value'])
+        else:
+            date_time = str(act['value'])
+
+flag = False
+if str(datetime.utcnow())[8:10] != date_time[8:10]:
+    flag = True
+
 project_listing = []
 for project in Project.where(launch_approved=True):
     try:
@@ -36,9 +51,27 @@ with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') 
                    + 'retired_subjects_count' + ',' + 'activity' + ','
                    + 'completeness' + ',' + 'state' + ',' + 'display_name' + '\n')
     for line in sorted_on_state:
-        print(line)
         out_file.write(str(line[0]) + ',' + str(line[1]) + ',' + str(line[2]) + ',' + str(line[3]) + ',' + str(
-            line[4]) + ',' + str(line[5]) + ',' + str(line[6]) + '\n')
+            line[4]) + ',' + line[5] + ',' + line[6] + '\n')
+        if line[5] == 'live'and flag:
+            try:
+                new = stack[str(line[0])][1:]
+                new.append(int(line[3]))
+                stack[str(line[0])] = new
+            except KeyError:
+                new = stack['new'][:]
+                new[13] = line[3]
+                stack[str(line[0])] = new
+    if flag:
+        date_time = str(datetime.utcnow())[:16]
+
+with io.open('activity_stack.csv', 'w', newline='') as out_act_file:
+    fieldnames = ['key', 'value']
+    writer = csv.DictWriter(out_act_file, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerow({'key': 'datetime', 'value': date_time})
+    for item in list(stack.keys()):
+        writer.writerow({'key': item, 'value': json.dumps(stack[item])})
 
 content = open('out_proj_stats_approved.csv', 'r', encoding='latin-1').read()
 client.import_csv('1Wg2ZNDeDZpxEwmY97b5ppb3VtO2Qd9jYKgC7EF0A3yo', content)
