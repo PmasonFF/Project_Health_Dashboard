@@ -55,13 +55,16 @@ with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') 
             line[4]) + ',' + line[5] + ',' + line[6] + '\n')
         if line[5] == 'live'and flag:
             try:
-                new = stack[str(line[0])][1:]
-                new.append(int(line[3]))
-                stack[str(line[0])] = new
+                if len(stack[str(line[0])]) >= 14:
+                    new = stack[str(line[0])][-13:]
+                    new.append(int(line[3]))
+                else:
+                    new = stack[str(line[0])][:]
+                    new.append(int(line[3]))
             except KeyError:
-                new = stack['new'][:]
-                new[13] = line[3]
-                stack[str(line[0])] = new
+                new = int(line[3])
+            stack[str(line[0])] = new
+
     if flag:
         date_time = str(datetime.utcnow())[:16]
 
@@ -81,7 +84,7 @@ sheet.insert_row([''], 2)
 sheet.insert_row([''], 3)
 sheet.update_cell(1, 1, "Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
                   + str(datetime.utcnow())[10:16] + '  UTC')
-# ____________________________________________________________________________________________________________________
+#  ____________________________________________________________________________________________________________________
 # This next section applies some tests to various field for a project and flags it with colours based on the findings
 sheet.update_acell('B2', "live, broken")
 sheet.update_acell('E2', "live, no activity")
@@ -104,11 +107,12 @@ with open('out_proj_stats_approved.csv', 'r', encoding='cp1252') as file:
             row_range = 'A' + str(rc) + ':F' + str(rc)
             format_cell_range(sheet, row_range, fmt)
         elif row['state'] == 'live':
-            if (int(row['subjects_count']) - int(row['retired_subjects_count'])) / int(row['activity']) >= 1095:
+            avg_act = (sum(stack[str(row['project_id'])]) / len(stack[str(row['project_id'])]))
+            if (int(row['subjects_count']) - int(row['retired_subjects_count'])) / avg_act >= 1095:
                 fmt = CellFormat(backgroundColor=Color(1, .7, 0))
                 row_range = 'A' + str(rc) + ':F' + str(rc)
                 format_cell_range(sheet, row_range, fmt)
-            elif (int(row['subjects_count']) - int(row['retired_subjects_count'])) / int(row['activity']) >= 547:
+            elif (int(row['subjects_count']) - int(row['retired_subjects_count'])) / avg_act >= 547:
                 fmt = CellFormat(backgroundColor=Color(.98, .8, .6))
                 row_range = 'A' + str(rc) + ':F' + str(rc)
                 format_cell_range(sheet, row_range, fmt)
@@ -120,5 +124,4 @@ with open('out_proj_stats_approved.csv', 'r', encoding='cp1252') as file:
             fmt = CellFormat(backgroundColor=Color(1, .9, .9))
             row_range = 'A' + str(rc) + ':F' + str(rc)
             format_cell_range(sheet, row_range, fmt)
-
 #  ____________________________________________________________________________________________________________________
