@@ -53,16 +53,16 @@ with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') 
     for line in sorted_on_state:
         out_file.write(str(line[0]) + ',' + str(line[1]) + ',' + str(line[2]) + ',' + str(line[3]) + ',' + str(
             line[4]) + ',' + line[5] + ',' + line[6] + '\n')
+        new = []
         if line[5] == 'live'and flag:
             try:
                 if len(stack[str(line[0])]) >= 14:
                     new = stack[str(line[0])][-13:]
-                    new.append(int(line[3]))
                 else:
                     new = stack[str(line[0])][:]
-                    new.append(int(line[3]))
             except KeyError:
-                new = int(line[3])
+                pass
+            new.append(int(line[3]))
             stack[str(line[0])] = new
 
     if flag:
