@@ -69,17 +69,17 @@ with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') 
             avg_act = int((sum(stack[str(line[0])]) / len(stack[str(line[0])])) + .5)
             if avg_act > 0:
                 avg_retirement = 3
-                # ecd = int((int(line[1]) * avg_retirement - int(line[3])) / avg_act + .5)
                 ecd = int((int(line[1]) - int(line[2])) * avg_retirement / avg_act + .5)
             else:
                 ecd = ''
             out_file.write(str(line[0]) + ',' + str(line[1]) + ',' + str(line[2]) + ','
                            + str(line[3]) + ',' + str(line[4]) + ',' + str(avg_act) + ','
-                           + str(line[5]) + ',' + str(ecd) + ',' + line[6] + ',' + line[7] + '\n')
+                           + str(line[5]) + ',' + str(ecd) + ',' + line[6] + ','
+                           + json.dumps(line[7], ensure_ascii=False) + '\n')
         else:
             out_file.write(str(line[0]) + ',' + str(line[1]) + ',' + str(line[2]) + ','
                            + str(line[3]) + ',' + str(line[4]) + ',' + '' + ',' + str(line[5]) + ',' + '' + ','
-                           + line[6] + ',' + line[7] + '\n')
+                           + line[6] + ',' + json.dumps(line[7], ensure_ascii=False) + '\n')
 
     if flag:
         date_time = str(datetime.utcnow())[:16]
