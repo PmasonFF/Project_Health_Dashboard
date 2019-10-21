@@ -51,7 +51,7 @@ with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') 
     out_file.write('project_id' + ',' + 'subjects_count' + ','
                    + 'retired_subjects_count' + ',' + 'classifications_count'
                    + ',' + 'latest activity' + ',' + '14 day avg. activity'
-                   + ',' + 'completeness' + ',' + 'ECD days' + ',' + 'state'
+                   + ',' + 'Ret. completeness' + ',' + 'state'
                    + ',' + 'display_name' + '\n')
     for line in sorted_on_state:
         if line[6] == 'live':
@@ -67,18 +67,14 @@ with io.open('out_proj_stats_approved.csv', 'w', encoding='cp1252', newline='') 
                 new.append(int(line[4]))
                 stack[str(line[0])] = new
             avg_act = int((sum(stack[str(line[0])]) / len(stack[str(line[0])])) + .5)
-            if avg_act > 0:
-                avg_retirement = 3
-                ecd = int((int(line[1]) - int(line[2])) * avg_retirement / avg_act + .5)
-            else:
-                ecd = ''
+
             out_file.write(str(line[0]) + ',' + str(line[1]) + ',' + str(line[2]) + ','
                            + str(line[3]) + ',' + str(line[4]) + ',' + str(avg_act) + ','
-                           + str(line[5]) + ',' + str(ecd) + ',' + line[6] + ','
+                           + str(line[5]) + ',' + line[6] + ','
                            + json.dumps(line[7], ensure_ascii=False) + '\n')
         else:
             out_file.write(str(line[0]) + ',' + str(line[1]) + ',' + str(line[2]) + ','
-                           + str(line[3]) + ',' + str(line[4]) + ',' + '' + ',' + str(line[5]) + ',' + '' + ','
+                           + str(line[3]) + ',' + str(line[4]) + ',' + '' + ',' + str(line[5]) + ','
                            + line[6] + ',' + json.dumps(line[7], ensure_ascii=False) + '\n')
 
     if flag:
@@ -91,6 +87,9 @@ with io.open('activity_stack.csv', 'w', newline='') as out_act_file:
     writer.writerow({'key': 'datetime', 'value': date_time})
     for item in list(stack.keys()):
         writer.writerow({'key': item, 'value': json.dumps(stack[item])})
+
+act_content = open('activity_stack.csv', 'r', encoding='latin-1').read()
+client.import_csv('1R_Rha3Vwub----Dop4N1yiQjPG9ZqMkDQ9oFLZ2N_XQ', act_content)
 
 content = open('out_proj_stats_approved.csv', 'r', encoding='latin-1').read()
 client.import_csv('1Wg2ZNDeDZpxEwmY97b5ppb3VtO2Qd9jYKgC7EF0A3yo', content)

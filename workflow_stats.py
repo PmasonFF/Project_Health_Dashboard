@@ -12,10 +12,11 @@ import io
 import operator
 import sys
 from datetime import datetime
+from random import *
 import panoptes_client
 from panoptes_client import Panoptes, Project
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+# import gspread
+# from oauth2client.service_account import ServiceAccountCredentials
 #  from gspread_formatting import *
 
 
@@ -23,6 +24,43 @@ def output(location, build):
     with io.open(location, 'w', encoding='cp1252', newline='') as out_file:
         out_file.write(build)
     return
+
+
+def get_mapping(retirement):
+    sub_count = 2000
+    step = int(sub_count * retirement / 100)
+    subject_list = [0 for _ in range(0, sub_count)]
+    classifications = 0
+    retired = 0
+    mapping = [(0, 0)]
+    while True:
+        classifications += 1
+        x = randint(1, len(subject_list))
+        subject_list[x - 1] += 1
+        if subject_list[x - 1] == retirement:
+            del subject_list[x - 1]
+            if len(subject_list) == 0:
+                break
+            retired += 1
+        if classifications % step == 0:
+            mapping.append((round(classifications / (sub_count * retirement) * 100, 2),
+                            round(retired / sub_count * 100, 2)))
+    mapping.append((100, 100))
+    return mapping
+
+
+def model_stats(ret_percent, retirement, class_percent):
+    if retirement > 30:
+        return ''
+    if ret_percent == 100:
+        return 100
+    elif ret_percent > 8.0:
+        for (cl_comp, rt_comp) in get_mapping(retirement):
+            if ret_percent <= rt_comp:
+                return int(cl_comp + .5)
+            continue
+    else:
+        return class_percent
 
 
 parser = argparse.ArgumentParser(
@@ -126,8 +164,9 @@ for line in project_listing:
             'Retirement_limit',
             'Class_Completeness',
             'Retired_Completeness',
+            'Linearized completeness',
             'Display_name') + '\n'
-        build_overall = "{:<12},{:<13},{:<16},{:<25},{:<22},{:<19},{:<21},{:<19},{:<21},{:<22},{}".format(
+        build_overall = "{:<12},{:<13},{:<16},{:<25},{:<22},{:<19},{:<21},{:<19},{:<21},{:<22},{:<24},{}".format(
             str(line[0]),
             'Over_all',
             str(line[1]),
@@ -138,7 +177,8 @@ for line in project_listing:
             '',
             '',
             str(line[5]),
-            json.dumps(line[7])) + '\n'
+            '',
+            json.dumps(str(line[7]), ensure_ascii=False)) + '\n'
 
         project = Project.find(str(line[0]))
         for wrkflw in project.links.workflows:
@@ -156,34 +196,43 @@ for line in project_listing:
                     class_comp = ''
                 if wrkflw.subjects_count > 0:
                     ret_comp = int(wrkflw.retired_set_member_subjects_count / wrkflw.subjects_count * 100 + .5)
+                    linearized = model_stats(ret_comp, ret_limit, class_comp)
                 else:
                     ret_comp = ''
+                    linearized = ''
                 if wrkflw.subjects_count == line[1]:
-                    build_part += "{:<12},{:<13},{:<16},{:<25},{:<22},{:<19},{:<21},{:<19},{:<21},{:<22},{}".format(
-                        str(line[0]), wrkflw.id,
-                        wrkflw.subjects_count,
-                        wrkflw.retired_set_member_subjects_count,
-                        wrkflw.classifications_count,
-                        str(line[4]),
-                        str(avg_act),
-                        str(ret_limit),
-                        str(class_comp),
-                        str(ret_comp),
-                        json.dumps((str(line[7])) + ' - ' + wrkflw.display_name), ensure_ascii=False) + '\n'
+                    build_part += "{:<12},{:<13},{:<16},{:<25},{:<22},{:<19},{:<21}," \
+                                  "{:<19},{:<21},{:<22},{:<24},{}".format(str(line[0]),
+                                                                          wrkflw.id,
+                                                                          wrkflw.subjects_count,
+                                                                          wrkflw.retired_set_member_subjects_count,
+                                                                          wrkflw.classifications_count,
+                                                                          str(line[4]),
+                                                                          str(avg_act),
+                                                                          str(ret_limit),
+                                                                          str(class_comp),
+                                                                          str(ret_comp),
+                                                                          str(linearized),
+                                                                          json.dumps((str(
+                                                                              line[7])) + ' - ' + wrkflw.display_name),
+                                                                          ensure_ascii=False) + '\n'
                 else:
                     build_part += build_overall
                     build_overall = ''
-                    build_part += "{:<12},{:<13},{:<16},{:<25},{:<22},{:<19},{:<21},{:<19},{:<21},{:<22},{}".format(
-                        str(line[0]), wrkflw.id,
-                        wrkflw.subjects_count,
-                        wrkflw.retired_set_member_subjects_count,
-                        wrkflw.classifications_count,
-                        '',
-                        '',
-                        str(ret_limit),
-                        str(class_comp),
-                        str(ret_comp),
-                        json.dumps(wrkflw.display_name, ensure_ascii=False)) + '\n'
+                    build_part += "{:<12},{:<13},{:<16},{:<25},{:<22},{:<19},{:<21}," \
+                                  "{:<19},{:<21},{:<22},{:<24},{}".format(str(line[0]),
+                                                                          wrkflw.id,
+                                                                          wrkflw.subjects_count,
+                                                                          wrkflw.retired_set_member_subjects_count,
+                                                                          wrkflw.classifications_count,
+                                                                          '',
+                                                                          '',
+                                                                          str(ret_limit),
+                                                                          str(class_comp),
+                                                                          str(ret_comp),
+                                                                          str(linearized),
+                                                                          json.dumps(wrkflw.display_name,
+                                                                                     ensure_ascii=False)) + '\n'
 
     except panoptes_client.panoptes.PanoptesAPIException:
         build_part += str(sys.exc_info()[1]) + '\n'
@@ -192,17 +241,17 @@ for line in project_listing:
     build_file += build_part
 output(save_to, build_file)
 # ____________________________________________________________________________________________________________________
-# use creds to create a client to interact with the Google Drive API
-scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
-client = gspread.authorize(creds)
-
-content = open(save_to, 'r', encoding='latin-1').read()
-client.import_csv('1JOzKlzfCMBVzvbxoyvcY8P3GyfPzZF5dkKR8STWHx4E', content)
-sheet = client.open("workflow_stats_output").sheet1
-sheet.insert_row([''], 1)
-sheet.insert_row([''], 2)
-sheet.update_cell(1, 1, "Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
-                  + str(datetime.utcnow())[10:16] + '  UTC')
-#  ___________________________________________________________________________________________________________________
+# # use creds to create a client to interact with the Google Drive API
+# scope = ['https://spreadsheets.google.com/feeds',
+#          'https://www.googleapis.com/auth/drive']
+# creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+# client = gspread.authorize(creds)
+#
+# content = open(save_to, 'r', encoding='latin-1').read()
+# client.import_csv('1JOzKlzfCMBVzvbxoyvcY8P3GyfPzZF5dkKR8STWHx4E', content)
+# sheet = client.open("workflow_stats_output").sheet1
+# sheet.insert_row([''], 1)
+# sheet.insert_row([''], 2)
+# sheet.update_cell(1, 1, "Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
+#                   + str(datetime.utcnow())[10:16] + '  UTC')
+# #  ___________________________________________________________________________________________________________________
