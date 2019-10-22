@@ -12,12 +12,11 @@ import io
 import operator
 import sys
 from datetime import datetime
-from random import *
 import panoptes_client
 from panoptes_client import Panoptes, Project
-# import gspread
-# from oauth2client.service_account import ServiceAccountCredentials
-#  from gspread_formatting import *
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+# from gspread_formatting import *
 
 
 def output(location, build):
@@ -26,39 +25,40 @@ def output(location, build):
     return
 
 
-def get_mapping(retirement):
-    sub_count = 2000
-    step = int(sub_count * retirement / 100)
-    subject_list = [0 for _ in range(0, sub_count)]
-    classifications = 0
-    retired = 0
-    mapping = [(0, 0)]
-    while True:
-        classifications += 1
-        x = randint(1, len(subject_list))
-        subject_list[x - 1] += 1
-        if subject_list[x - 1] == retirement:
-            del subject_list[x - 1]
-            if len(subject_list) == 0:
-                break
-            retired += 1
-        if classifications % step == 0:
-            mapping.append((round(classifications / (sub_count * retirement) * 100, 2),
-                            round(retired / sub_count * 100, 2)))
-    mapping.append((100, 100))
-    return mapping
+with open(r'C:\py_git_project_status\mapping_stack.csv', 'r') as map_file:
+    mapping_dict = csv.DictReader(map_file)
+    map_stack = {}
+    for mapping in mapping_dict:
+        map_stack[int(mapping['limit'])] = json.loads(mapping['mapping'])
+
+
+def interpolate(ret_percent, retirement):
+    lo = 0
+    hi = len(map_stack[retirement])
+    mid = (lo + hi) // 2
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if ret_percent < map_stack[retirement][mid][1]:
+            hi = mid
+        else:
+            lo = mid + 1
+    interpolation = int(map_stack[retirement][mid][0]
+                        + (map_stack[retirement][mid - 1][0] - map_stack[retirement][mid][0])
+                        / (map_stack[retirement][mid - 1][1] - map_stack[retirement][mid][1])
+                        * (ret_percent - map_stack[retirement][mid][1]) + .5)
+
+    return interpolation
 
 
 def model_stats(ret_percent, retirement, class_percent):
-    if retirement > 30:
+    if retirement == 1:
+        return ret_percent
+    if retirement > 60:
         return ''
     if ret_percent == 100:
         return 100
-    elif ret_percent > 8.0:
-        for (cl_comp, rt_comp) in get_mapping(retirement):
-            if ret_percent <= rt_comp:
-                return int(cl_comp + .5)
-            continue
+    elif ret_percent >= 10.0:
+        return interpolate(ret_percent, retirement)
     else:
         return class_percent
 
@@ -241,17 +241,17 @@ for line in project_listing:
     build_file += build_part
 output(save_to, build_file)
 # ____________________________________________________________________________________________________________________
-# # use creds to create a client to interact with the Google Drive API
-# scope = ['https://spreadsheets.google.com/feeds',
-#          'https://www.googleapis.com/auth/drive']
-# creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
-# client = gspread.authorize(creds)
-#
-# content = open(save_to, 'r', encoding='latin-1').read()
-# client.import_csv('1JOzKlzfCMBVzvbxoyvcY8P3GyfPzZF5dkKR8STWHx4E', content)
-# sheet = client.open("workflow_stats_output").sheet1
-# sheet.insert_row([''], 1)
-# sheet.insert_row([''], 2)
-# sheet.update_cell(1, 1, "Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
-#                   + str(datetime.utcnow())[10:16] + '  UTC')
-# #  ___________________________________________________________________________________________________________________
+# use creds to create a client to interact with the Google Drive API
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+client = gspread.authorize(creds)
+
+content = open(save_to, 'r', encoding='latin-1').read()
+client.import_csv('1JOzKlzfCMBVzvbxoyvcY8P3GyfPzZF5dkKR8STWHx4E', content)
+sheet = client.open("workflow_stats_output").sheet1
+sheet.insert_row([''], 1)
+sheet.insert_row([''], 2)
+sheet.update_cell(1, 1, "Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
+                  + str(datetime.utcnow())[10:16] + '  UTC')
+#  ___________________________________________________________________________________________________________________
