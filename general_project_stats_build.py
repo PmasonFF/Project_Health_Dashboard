@@ -88,36 +88,36 @@ with io.open('activity_stack.csv', 'w', newline='') as out_act_file:
     for item in list(stack.keys()):
         writer.writerow({'key': item, 'value': json.dumps(stack[item])})
 
-act_content = open('activity_stack.csv', 'r', encoding='latin-1').read()
-client.import_csv('1R_Rha3Vwub----Dop4N1yiQjPG9ZqMkDQ9oFLZ2N_XQ', act_content)
-
-content = open('out_proj_stats_approved.csv', 'r', encoding='latin-1').read()
-client.import_csv('1Wg2ZNDeDZpxEwmY97b5ppb3VtO2Qd9jYKgC7EF0A3yo', content)
+# act_content = open('activity_stack.csv', 'r', encoding='latin-1').read()
+# client.import_csv('1R_Rha3Vwub----Dop4N1yiQjPG9ZqMkDQ9oFLZ2N_XQ', act_content)
+#
+# content = open('out_proj_stats_approved.csv', 'r', encoding='latin-1').read()
+# client.import_csv('1Wg2ZNDeDZpxEwmY97b5ppb3VtO2Qd9jYKgC7EF0A3yo', content)
 sheet = client.open("out_proj_stats_approved").sheet1
-sheet.insert_row([''], 1)
-sheet.insert_row([''], 2)
-sheet.insert_row([''], 3)
-sheet.update_cell(1, 1, "Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
-                  + str(datetime.utcnow())[10:16] + '  UTC')
-#  ___________________________________________________________________________________________________________________
-# This next section applies some tests to various field for a project and flags it with colours based on the findings
-sheet.update_acell('B2', "live, broken, or no data")
-sheet.update_acell('E2', "live, no activity")
-sheet.update_acell('G2', "paused, no subjects")
-sheet.update_acell('B3', "slow completion")
-sheet.update_acell('E3', "very slow completion")
-format_cell_range(sheet, 'A2:A2', CellFormat(backgroundColor=Color(1, 0, 0)))
-format_cell_range(sheet, 'D2:D2', CellFormat(backgroundColor=Color(1, 1, 0)))
-format_cell_range(sheet, 'F2:F2', CellFormat(backgroundColor=Color(1, .9, .9)))
-format_cell_range(sheet, 'A3:A3', CellFormat(backgroundColor=Color(.98, .8, .6)))
-format_cell_range(sheet, 'D3:D3', CellFormat(backgroundColor=Color(1, .7, 0)))
+# sheet.insert_row([''], 1)
+# sheet.insert_row([''], 2)
+# sheet.insert_row([''], 3)
+# sheet.update_cell(1, 1, "Listing as of  " + str(datetime.utcnow())[0:10] + '  at '
+#                   + str(datetime.utcnow())[10:16] + '  UTC')
+# #  ___________________________________________________________________________________________________________________
+# # This next section applies some tests to various field for a project and flags it with colours based on the findings
+# sheet.update_acell('B2', "live, broken, or no data")
+# sheet.update_acell('E2', "live, no activity")
+# sheet.update_acell('G2', "paused, no subjects")
+# sheet.update_acell('B3', "slow completion")
+# sheet.update_acell('E3', "very slow completion")
+# format_cell_range(sheet, 'A2:A2', CellFormat(backgroundColor=Color(1, 0, 0)))
+# format_cell_range(sheet, 'D2:D2', CellFormat(backgroundColor=Color(1, 1, 0)))
+# format_cell_range(sheet, 'F2:F2', CellFormat(backgroundColor=Color(1, .9, .9)))
+# format_cell_range(sheet, 'A3:A3', CellFormat(backgroundColor=Color(.98, .8, .6)))
+# format_cell_range(sheet, 'D3:D3', CellFormat(backgroundColor=Color(1, .7, 0)))
 
 with open('out_proj_stats_approved.csv', 'r', encoding='cp1252') as file:
     project_details = csv.DictReader(file)
     rc = 4
     for row in project_details:
         rc += 1
-        if row['latest activity'] == '0' and row['state'] == 'live':
+        if (row['latest activity'] == '0' or row['14 day avg. activity'] == '0') and row['state'] == 'live':
             fmt = CellFormat(backgroundColor=Color(1, 1, 0))
             row_range = 'A' + str(rc) + ':I' + str(rc)
             format_cell_range(sheet, row_range, fmt)

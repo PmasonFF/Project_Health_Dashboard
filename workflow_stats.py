@@ -86,7 +86,7 @@ parser.add_argument('--save_to', '-s', required=False, default='workflow_stats_o
                     where the output will be saved in csv format. Give the full
                     path (from the directory where this script is run, or from the
                     root directory) and the file name. 
-                    example -s some_path\workflow_stats_output.csv """)
+                    example -s workflow_stats_output.csv """)
 args = parser.parse_args()
 
 save_to = args.save_to

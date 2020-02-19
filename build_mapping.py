@@ -12,7 +12,7 @@ def get_mapping(retirement):
     mapping = []
     while True:
         classifications += 1
-        x = randint(1, len(subject_list))
+
         subject_list[x - 1] += 1
         if subject_list[x - 1] == retirement:
             del subject_list[x - 1]
@@ -27,7 +27,7 @@ def get_mapping(retirement):
     return mapping
 
 
-ret_limit_options = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 25, 30, 40, 50, 60]
+ret_limit_options = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 21, 25, 30, 40, 50, 60]
 
 with open(r'C:\py_git_project_status\mapping_stack.csv', 'w', newline='') as out_map_file:
     fieldnames = ['limit', 'mapping']
