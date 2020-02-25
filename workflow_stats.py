@@ -183,23 +183,30 @@ for line in project_listing:
         project = Project.find(str(line[0]))
         for wrkflw in project.links.workflows:
             if wrkflw.active == 1:
-                try:
-                    ret_limit = wrkflw.retirement['options']['count']
-                    if wrkflw.classifications_count < (wrkflw.subjects_count * ret_limit):
-                        class_comp = int(wrkflw.classifications_count / (wrkflw.subjects_count * wrkflw.retirement[
-                            'options']['count']) * 100 + .5)
+                if wrkflw.retirement['criteria'] == 'classification_count':
+                    try:
+                        ret_limit = wrkflw.retirement['options']['count']
+                        if wrkflw.classifications_count < (wrkflw.subjects_count * ret_limit):
+                            class_comp = int(wrkflw.classifications_count / (wrkflw.subjects_count * wrkflw.retirement[
+                                'options']['count']) * 100 + .5)
+                        else:
+                            class_comp = 100
+                    except KeyError:
+                        ret_limit = wrkflw.retirement[
+                            'options']
+                        class_comp = ''
+                    if wrkflw.subjects_count > 0:
+                        ret_comp = int(wrkflw.retired_set_member_subjects_count / wrkflw.subjects_count * 100 + .5)
+                        linearized = model_stats(ret_comp, ret_limit, class_comp)
                     else:
-                        class_comp = 100
-                except KeyError:
-                    ret_limit = wrkflw.retirement[
-                        'options']
-                    class_comp = ''
-                if wrkflw.subjects_count > 0:
-                    ret_comp = int(wrkflw.retired_set_member_subjects_count / wrkflw.subjects_count * 100 + .5)
-                    linearized = model_stats(ret_comp, ret_limit, class_comp)
+                        ret_comp = ''
+                        linearized = ''
                 else:
+                    ret_limit = wrkflw.retirement['criteria']
+                    class_comp = ''
                     ret_comp = ''
                     linearized = ''
+
                 if wrkflw.subjects_count == line[1]:
                     build_part += "{:<12},{:<13},{:<16},{:<25},{:<22},{:<19},{:<21}," \
                                   "{:<19},{:<21},{:<22},{:<24},{}".format(str(line[0]),
